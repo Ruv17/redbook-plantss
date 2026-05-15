@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Красная книга растений — Исчезнувшие виды</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Планшетный медиа-запрос */
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            .features-grid {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">КРАСНАЯ КНИГА</span>
+        </div>
+        <nav class="main-nav">
+            <a href="main.html" class="nav-link active">Главная</a>
+            <a href="catalog.html" class="nav-link">Каталог видов</a>
+            <a href="request.html" class="nav-link">Сообщить о виде</a>
+            <a href="about.html" class="nav-link">О проекте</a>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Меню">☰</button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Исчезнувшие навсегда</h1>
+            <p class="hero-subtitle">Виды растений, которые мы больше не увидим в дикой природе. Сохраним память о них.</p>
+            <a href="catalog.html" class="btn-primary" style="box-shadow: 0 8px 20px rgba(194,106,66,0.3);">Исследовать каталог →</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Как вы можете помочь</h2>
+        <div class="features-grid">
+            <a href="catalog.html" class="feature-card">
+                <div class="card-image">
+                    <img src="catalog-icon.png" alt="Каталог" class="card-img">
+                </div>
+                <h3>Просмотреть каталог</h3>
+                <p>Описания и изображения утраченных растений</p>
+            </a>
+            <a href="request.html" class="feature-card">
+                <div class="card-image">
+                    <img src="request-icon.png" alt="Заявка" class="card-img">
+                </div>
+                <h3>Внести данные</h3>
+                <p>Расскажите о редком виде, который нуждается в охране</p>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">Красная книга растений</div>
+                <p>Проект по сохранению памяти об исчезнувших видах флоры</p>
+            </div>
+            <div class="footer-col">
+                <h4>Разделы</h4>
+                <ul>
+                    <li><a href="main.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="request.html">Заявка</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>email: redbook@plants.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Красная книга растений | Все права защищены
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('.main-nav');
+        if(toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                nav.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>

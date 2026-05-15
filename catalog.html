@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог видов – Красная книга растений</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Заголовок каталога */   
+        .catalog-header {
+            text-align: center;
+            margin: 2rem 0 1rem;
+        }
+        .catalog-header h1 {
+            font-size: 2.5rem;
+            color: #e0d6b0;
+        }
+        .catalog-header p {
+            color: #bdd4bd;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* Сетка карточек */
+        .plants-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        /* Карточка растения (основной блок) */
+        .plant-card {
+            background: #0e1a0e;
+            border-radius: 28px;
+            width: 320px;
+            overflow: hidden;
+            transition: background 0.3s ease;
+            border: 1px solid rgba(194,106,66,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        /* Карточка при наведении */ 
+        .plant-card:hover {
+            background: #1a2a1a;
+            border-color: #c26a42;
+        }
+        /* Изображение растения */
+        .plant-img-wrapper {
+            text-align: center;
+            padding: 1.2rem 1rem 0.5rem;
+        }
+        .plant-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid #c26a42;
+            transition: transform 0.1s ease;
+        }
+        .plant-card:hover .plant-img {
+            transform: scale(1.02);
+        }
+        /* Текст внутри карточки */
+        .plant-card h3 {
+            color: #c26a42;
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 0.5rem 0 0.2rem;
+            padding: 0 0.5rem;
+        }
+        .plant-scientific {
+            text-align: center;
+            font-style: italic;
+            color: #a0bfa0;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .status-badge {
+            display: inline-block;
+            background: #4a2a1a;
+            color: #e08e5e;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 0 auto 0.8rem;
+            width: fit-content;
+        }
+        /* Детали растения (семейство, ареал и т.д.) */
+        .plant-details {
+            padding: 0 1rem 1rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #d4e2d4;
+            flex-grow: 1;
+        }
+        .plant-details p {
+            margin: 0.5rem 0;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #c26a42;
+        }
+        /* Кнопка «Узнать больше» */
+        .btn-detail {
+            display: block;
+            background: #c26a42;
+            color: #0a140a;
+            text-align: center;
+            padding: 0.5rem;
+            margin: 0.8rem 1rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-detail:hover {
+            background: #e08e5e;
+        }
+
+        @media (max-width: 720px) {
+            .plant-card {
+                width: 100%;
+                max-width: 360px;
+            }
+            .catalog-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+        @media screen and (min-width: 721px) and (max-width: 1024px) {
+            .plants-grid {
+                gap: 1.5rem;
+            }
+            .plant-card {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">КРАСНАЯ КНИГА</span>
+        </div>
+        <nav class="main-nav">
+            <a href="main.html" class="nav-link">Главная</a>
+            <a href="catalog.html" class="nav-link active">Каталог видов</a>
+            <a href="request.html" class="nav-link">Сообщить о виде</a>
+            <a href="about.html" class="nav-link">О проекте</a>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Меню">☰</button>
+    </header>
+
+    <main>
+        <div class="catalog-header">
+            <h1>Энциклопедия исчезнувших растений</h1>
+            <p>Подробные сведения о видах, которые мы потеряли или скоро можем потерять</p>
+        </div>
+
+        <div class="plants-grid">
+            <!-- Franklinia -->
+            <div class="plant-card">
+                <div class="plant-img-wrapper">
+                    <img src="franklinia_small.jpg" alt="Franklinia" class="plant-img">
+                </div>
+                <h3>Франклиния алатамаха</h3>
+                <div class="plant-scientific">Franklinia alatamaha</div>
+                <div class="status-badge">Исчез в дикой природе</div>
+                <div class="plant-details">
+                    <p><span class="detail-label">Семейство:</span> Tea family (Theaceae)</p>
+                    <p><span class="detail-label">Ареал:</span> Джорджия, США (долина реки Алатамаха)</p>
+                    <p><span class="detail-label">Последнее наблюдение:</span> 1803 год</p>
+                    <p><span class="detail-label">Причина:</span> Заболачивание, сбор коллекционерами</p>
+                    <p><span class="detail-label">Интересно:</span> Все современные растения – потомки одного экземпляра, выращенного садоводами.</p>
+                </div>
+                <a href="javascript:void(0)" class="btn-detail" onclick="showMore('franklinia')">Узнать больше →</a>
+            </div>
+
+            <!-- Wood's Cycad -->
+            <div class="plant-card">
+                <div class="plant-img-wrapper">
+                    <img src="woods_cycad.jpg" alt="Wood's Cycad" class="plant-img">
+                </div>
+                <h3>Энцефаляртос Вуда</h3>
+                <div class="plant-scientific">Encephalartos woodii</div>
+                <div class="status-badge">Исчез в дикой природе</div>
+                <div class="plant-details">
+                    <p><span class="detail-label">Семейство:</span> Замиевые (Zamiaceae)</p>
+                    <p><span class="detail-label">Ареал:</span> ЮАР, лес Нгойе</p>
+                    <p><span class="detail-label">Последнее наблюдение:</span> 1916 год (единственный мужской экземпляр)</p>
+                    <p><span class="detail-label">Причина:</span> Вырубка лесов, сбор растений</p>
+                    <p><span class="detail-label">Интересно:</span> Женских особей не найдено, размножается только вегетативно в ботанических садах.</p>
+                </div>
+                <a href="javascript:void(0)" class="btn-detail" onclick="showMore('woodcycad')">Узнать больше →</a>
+            </div>
+
+            <!-- Подземная орхидея -->
+            <div class="plant-card">
+                <div class="plant-img-wrapper">
+                    <img src="underground_orchid.jpg" alt="Rhizanthella gardneri" class="plant-img">
+                </div>
+                <h3>Ризантелла Гарднера</h3>
+                <div class="plant-scientific">Rhizanthella gardneri</div>
+                <div class="status-badge">Вероятно исчезнувший</div>
+                <div class="plant-details">
+                    <p><span class="detail-label">Семейство:</span> Орхидные (Orchidaceae)</p>
+                    <p><span class="detail-label">Ареал:</span> Западная Австралия</p>
+                    <p><span class="detail-label">Последнее наблюдение:</span> 1928 год (больше не находили)</p>
+                    <p><span class="detail-label">Причина:</span> Изменение местообитаний, сбор</p>
+                    <p><span class="detail-label">Интересно:</span> Цветёт под землёй, опыляется муравьями и термитами.</p>
+                </div>
+                <a href="javascript:void(0)" class="btn-detail" onclick="showMore('orchid')">Узнать больше →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">Красная книга растений</div>
+                <p>Проект по сохранению памяти об исчезнувших видах флоры</p>
+            </div>
+            <div class="footer-col">
+                <h4>Разделы</h4>
+                <ul>
+                    <li><a href="main.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="request.html">Заявка</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>email: redbook@plants.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Красная книга растений | Все права защищены
+        </div>
+    </footer>
+
+    <script>
+        function showMore(plantId) {
+            let msg = '';
+            if (plantId === 'franklinia') {
+                msg = 'Franklinia была обнаружена отцом и сыном Бартрамами в 1765 г. В дикой природе больше не встречается. Все существующие деревья происходят от семян, собранных Бартрамами. Культивируется как декоративное растение.';
+            } else if (plantId === 'woodcycad') {
+                msg = 'Encephalartos woodii – единственный экземпляр был перенесён в ботанический сад Кью. Все современные растения – клоны этого мужского растения. Является одним из самых редких растений в мире.';
+            } else if (plantId === 'orchid') {
+                msg = 'Rhizanthella gardneri – уникальная подземная орхидея, у которой даже цветки расположены под землёй. После 1928 года были предприняты десятки экспедиций, но растение не найдено. Многие учёные считают его вымершим.';
+            }
+            alert(msg);
+        }
+    </script>
+</body>
+</html>

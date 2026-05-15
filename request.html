@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка – Красная книга растений</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Основной контейнер */
+        .request-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            gap: 2rem;
+        }
+        /* Левая колонка */
+        .info-text {
+            flex: 1;
+            background: #0e1a0e;
+            border-radius: 28px;
+            padding: 2rem;
+            border-left: 6px solid #c26a42;
+        }
+        .info-text h1 {
+            font-size: 2rem;
+            color: #e0d6b0;
+            margin-bottom: 1rem;
+        }
+        .info-text p {
+            line-height: 1.5;
+            color: #d4e2d4;
+        }
+        /* Правая колонка */
+        .form-wrapper {
+            flex: 1;
+            background: #0e1a0e;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid rgba(194,106,66,0.3);
+        }
+        .form-wrapper h2 {
+            color: #c26a42;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        /* Группы полей формы */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e0d6b0;
+            font-weight: 500;
+        }
+        /* Поля ввода */
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: #1a2a1a;
+            border: 1px solid #3a5a3a;
+            border-radius: 16px;
+            color: #eef4ee;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c26a42;
+        }
+        .form-group input[type="file"] {
+            padding: 0.5rem;
+            background: #1a2a1a;
+        }
+        /* Кнопка отправки */
+        .btn-submit {
+            background: #c26a42;
+            color: #0a140a;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+        .btn-submit:hover {
+            background: #e08e5e;
+        }
+        /* Вспомогательный текст */
+        small {
+            color: #7b8a7b;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 768px) {
+            .request-container {
+                flex-direction: column;
+            }
+            .info-text h1, .form-wrapper h2 {
+                font-size: 1.6rem;
+            }
+        }
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .request-container {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">КРАСНАЯ КНИГА</span>
+        </div>
+        <nav class="main-nav">
+            <a href="main.html" class="nav-link">Главная</a>
+            <a href="catalog.html" class="nav-link">Каталог видов</a>
+            <a href="request.html" class="nav-link active">Сообщить о виде</a>
+            <a href="about.html" class="nav-link">О проекте</a>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Меню">☰</button>
+    </header>
+
+    <main>
+        <div class="request-container">
+            <div class="info-text">
+                <h1>Поделитесь информацией</h1>
+                <p>Вы знаете о растении, которое находится под угрозой исчезновения или уже исчезло? Заполните форму, и мы добавим его в наш каталог. Вместе мы сохраним память о редких видах.</p>
+                <p style="margin-top: 1rem;">Ваши данные будут проверены экспертами, после чего растение появится в энциклопедии проекта.</p>
+            </div>
+            <div class="form-wrapper">
+                <h2>Отправить заявку</h2>
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label for="object-name">Название растения (русское и/или латинское) *</label>
+                        <input type="text" id="object-name" name="object_name" required placeholder="Например: Franklinia alatamaha">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Местоположение (ареал) *</label>
+                        <input type="text" id="location" name="location" required placeholder="Например: Джорджия, США">
+                    </div>
+                    <div class="form-group">
+                        <label for="media-files">Медиафайлы (фото, гербарий, документы)</label>
+                        <input type="file" id="media-files" name="media_files[]" multiple accept="image/*,application/pdf">
+                        <small>Поддерживаются изображения и PDF</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Дополнительная информация</label>
+                        <textarea id="comment" name="comment" rows="4" placeholder="Причины исчезновения, последние наблюдения, источники..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">Красная книга растений</div>
+                <p>Проект по сохранению памяти об исчезнувших видах флоры</p>
+            </div>
+            <div class="footer-col">
+                <h4>Разделы</h4>
+                <ul>
+                    <li><a href="main.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="request.html">Заявка</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>email: redbook@plants.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Красная книга растений | Все права защищены
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const objectName = document.getElementById('object-name').value.trim();
+            const location = document.getElementById('location').value.trim();
+            const mediaFiles = document.getElementById('media-files').files;
+            const comment = document.getElementById('comment').value.trim();
+
+            const formData = {
+                object_name: objectName,
+                location: location,
+                media_files: mediaFiles.length > 0 ? Array.from(mediaFiles).map(file => file.name) : [],
+                comment: comment
+            };
+
+            console.log('Данные формы:', formData);
+            alert('Форма заполнена корректно! Проверьте консоль для просмотра данных.');
+        });
+    </script>
+</body>
+</html>
